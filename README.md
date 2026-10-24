@@ -7,7 +7,7 @@ listings database (SQL), Airbnb's policies (RAG), or both.
 
 ![Airbnb Agent](screenshot.png)
 
-**Live demo:** (your Streamlit URL)
+**Live demo:** ([your Streamlit URL](https://airbnb-agent-v1.streamlit.app))
 
 **Measured:** 100% routing accuracy and 100% answer accuracy on a
 [16-question golden set](airbnb_golden_set.json) (`python evaluate_airbnb.py`).
