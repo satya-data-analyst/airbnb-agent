@@ -3,3 +3,4 @@ fastembed
 openai
 numpy
 pandas
+pytest
