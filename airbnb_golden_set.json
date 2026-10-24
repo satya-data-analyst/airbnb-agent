@@ -1,0 +1,156 @@
+[
+  {
+    "question": "How many listings are in Brooklyn?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "10290",
+      "10,290"
+    ],
+    "category": "sql-count",
+    "note": "neighbourhood_group_cleansed = 'Brooklyn'"
+  },
+  {
+    "question": "What is the median price of an entire home in Manhattan?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "254"
+    ],
+    "category": "sql-median",
+    "note": "median 254.54"
+  },
+  {
+    "question": "Which borough has the highest median price?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "Manhattan"
+    ],
+    "category": "sql-group",
+    "note": "Manhattan 265.44"
+  },
+  {
+    "question": "What is the highest revenue listing?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "1,285,371",
+      "1285371",
+      "285,371"
+    ],
+    "category": "sql-top",
+    "note": "estimated_revenue_l365d = 1,285,371"
+  },
+  {
+    "question": "Which neighbourhood has the most listings?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "Bedford-Stuyvesant"
+    ],
+    "category": "sql-top",
+    "note": "Bedford-Stuyvesant, 2012"
+  },
+  {
+    "question": "How many listings are entire homes or apartments?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "16410",
+      "16,410"
+    ],
+    "category": "sql-count",
+    "note": "room_type = 'Entire home/apt'"
+  },
+  {
+    "question": "How long do I have to report a problem with my stay?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "72"
+    ],
+    "category": "rag-deadline",
+    "note": "72 hours after discovery"
+  },
+  {
+    "question": "Are pets allowed in a listing?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "pet"
+    ],
+    "category": "rag-rule",
+    "note": "depends on the host's house rules"
+  },
+  {
+    "question": "What is the minimum host cancellation fee?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "50"
+    ],
+    "category": "rag-number",
+    "note": "$50 USD minimum"
+  },
+  {
+    "question": "What happens if a guest cancels after check-in?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "no refund",
+      "100"
+    ],
+    "category": "rag-rule",
+    "note": "no refund; host paid 100%"
+  },
+  {
+    "question": "How long is the free cancellation period after booking?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "24"
+    ],
+    "category": "rag-deadline",
+    "note": "24 hours"
+  },
+  {
+    "question": "Find the cheapest 2-bedroom in Manhattan and tell me the cancellation policy",
+    "expect_tool": "BOTH",
+    "expect_any": [
+      "cancellation"
+    ],
+    "category": "both",
+    "note": "needs listings AND policy"
+  },
+  {
+    "question": "What is the highest revenue listing and what are the guest house rules?",
+    "expect_tool": "BOTH",
+    "expect_any": [
+      "rule"
+    ],
+    "category": "both",
+    "note": "needs listings AND policy"
+  },
+  {
+    "question": "hello there",
+    "expect_tool": "CHAT",
+    "expect_any": [],
+    "category": "chat",
+    "note": "greeting"
+  },
+  {
+    "question": "what is your name?",
+    "expect_tool": "CHAT",
+    "expect_any": [],
+    "category": "chat",
+    "note": "small talk"
+  },
+  {
+    "question": "What is the late checkout fee?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "don't know",
+      "do not know",
+      "not mention",
+      "no mention",
+      "not present",
+      "no information",
+      "none",
+      "not specified",
+      "not stated",
+      "no evidence"
+    ],
+    "category": "rag-negative",
+    "note": "NEGATIVE TEST - the policies do not set a late checkout fee"
+  }
+]

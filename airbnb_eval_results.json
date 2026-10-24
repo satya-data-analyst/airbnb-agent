@@ -1,0 +1,220 @@
+[
+  {
+    "question": "How many listings are in Brooklyn?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "10290",
+      "10,290"
+    ],
+    "category": "sql-count",
+    "note": "neighbourhood_group_cleansed = 'Brooklyn'",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| brooklyn_listings |\n|---|\n| 10290 |\n"
+  },
+  {
+    "question": "What is the median price of an entire home in Manhattan?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "254"
+    ],
+    "category": "sql-median",
+    "note": "median 254.54",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| median_price |\n|---|\n| 254.54 |\n"
+  },
+  {
+    "question": "Which borough has the highest median price?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "Manhattan"
+    ],
+    "category": "sql-group",
+    "note": "Manhattan 265.44",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| borough | median_price |\n|---|---|\n| Manhattan | 265.44 |\n"
+  },
+  {
+    "question": "What is the highest revenue listing?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "1,285,371",
+      "1285371",
+      "285,371"
+    ],
+    "category": "sql-top",
+    "note": "estimated_revenue_l365d = 1,285,371",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| id | name | estimated_revenue_l365d |\n|---|---|---|\n| 953082621778685235 | 5Bdrm Midtown Penthouse Apartment/Corporate Rental | 1285371.0 |\n"
+  },
+  {
+    "question": "Which neighbourhood has the most listings?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "Bedford-Stuyvesant"
+    ],
+    "category": "sql-top",
+    "note": "Bedford-Stuyvesant, 2012",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| neighbourhood | listings_count |\n|---|---|\n| Bedford-Stuyvesant | 2012 |\n"
+  },
+  {
+    "question": "How many listings are entire homes or apartments?",
+    "expect_tool": "SQL",
+    "expect_any": [
+      "16410",
+      "16,410"
+    ],
+    "category": "sql-count",
+    "note": "room_type = 'Entire home/apt'",
+    "got_tool": "SQL",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "| total_entire_home_apt |\n|---|\n| 16410 |\n"
+  },
+  {
+    "question": "How long do I have to report a problem with my stay?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "72"
+    ],
+    "category": "rag-deadline",
+    "note": "72 hours after discovery",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "\u201cGuests must report Reservation Issues within **72 hours after discovery**.\u201d  \n\n\u201cTo request rebooking assistance or a refund, the guest who made the reservation must contact us or their host **within 72 hours after discovery of the Reservation Issue**.\u201d"
+  },
+  {
+    "question": "Are pets allowed in a listing?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "pet"
+    ],
+    "category": "rag-rule",
+    "note": "depends on the host's house rules",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "> \u201cApprovals for pets: Guests should not bring any pets inside a listing that is designated as\u202f\u201cno pets\u201d\u202fin the house rules, bring more pets than are approved into a listing, or fail to inform the host about any pets brought inside the listing.\u202fNote that Service Animals\u2014and in certain locations, Emo"
+  },
+  {
+    "question": "What is the minimum host cancellation fee?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "50"
+    ],
+    "category": "rag-number",
+    "note": "$50 USD minimum",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "> \u201cIf a host cancels a confirmed reservation, or if the host is found to be responsible for a cancellation under this Policy, we will impose fees **subject to a minimum cancellation fee of $50\u202fUSD**.\u201d  \n\n> \u201cIf the calculated cancellation fee is less than $50\u202fUSD, it will be adjusted up to $50\u202fUSD.\u201d"
+  },
+  {
+    "question": "What happens if a guest cancels after check-in?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "no refund",
+      "100"
+    ],
+    "category": "rag-rule",
+    "note": "no refund; host paid 100%",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "> \u201cIf they cancel after check\u2011in, they\u2019ll receive no refund and you\u2019ll be paid 100% for all nights.\u201d  \n\n> \u201cIf they cancel after check\u2011in, they\u2019ll receive no refund and you\u2019ll be paid 100% for all nights.\u201d  \n\n> \u201cIf they cancel after check\u2011in, they\u2019ll receive a refund of pro\u2011rated taxes, and you\u2019ll be"
+  },
+  {
+    "question": "How long is the free cancellation period after booking?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "24"
+    ],
+    "category": "rag-deadline",
+    "note": "24 hours",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "**Free cancellation period:**\u202f24\u202fhours after the reservation is confirmed.  \n\n> \u201cAll standard cancellation policies include a 24\u2011hour cancellation period. This allows guests to cancel for a full refund, including taxes, for up to 24\u202fhours after the reservation is confirmed, as long as the reservatio"
+  },
+  {
+    "question": "Find the cheapest 2-bedroom in Manhattan and tell me the cancellation policy",
+    "expect_tool": "BOTH",
+    "expect_any": [
+      "cancellation"
+    ],
+    "category": "both",
+    "note": "needs listings AND policy",
+    "got_tool": "BOTH",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "**What the data shows**\n\nThe only listing that appears in the database excerpt you provided is:\n\n| id\u202f|\u202fname\u202f|\u202fprice |\n|---|---|---|\n|\u202f15423552\u202f|\u202fManhattan Upper West Side\u202f1\u202fBR\u202fby\u202fCentral\u202fPark\u202f|\u202f$84.97\u202f|\n\nThat listing is a **1\u2011bedroom** unit, not a 2\u2011bedroom. Because the result set is limited to the"
+  },
+  {
+    "question": "What is the highest revenue listing and what are the guest house rules?",
+    "expect_tool": "BOTH",
+    "expect_any": [
+      "rule"
+    ],
+    "category": "both",
+    "note": "needs listings AND policy",
+    "got_tool": "BOTH",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "**Highest\u2011revenue listing (based on the data you provided)**  \n\n| Listing ID | Name | Location | Property type | Capacity | Estimated yearly revenue* |\n|------------|------|----------|---------------|----------|----------------------------|\n| **953082621778685235** | **5Bdrm Midtown Penthouse Apartm"
+  },
+  {
+    "question": "hello there",
+    "expect_tool": "CHAT",
+    "expect_any": [],
+    "category": "chat",
+    "note": "greeting",
+    "got_tool": "CHAT",
+    "tool_ok": true,
+    "answer_ok": null,
+    "answer": "(chat reply)"
+  },
+  {
+    "question": "what is your name?",
+    "expect_tool": "CHAT",
+    "expect_any": [],
+    "category": "chat",
+    "note": "small talk",
+    "got_tool": "CHAT",
+    "tool_ok": true,
+    "answer_ok": null,
+    "answer": "(chat reply)"
+  },
+  {
+    "question": "What is the late checkout fee?",
+    "expect_tool": "DOCS",
+    "expect_any": [
+      "don't know",
+      "do not know",
+      "not mention",
+      "no mention",
+      "not present",
+      "no information",
+      "none",
+      "not specified",
+      "not stated",
+      "no evidence"
+    ],
+    "category": "rag-negative",
+    "note": "NEGATIVE TEST - the policies do not set a late checkout fee",
+    "got_tool": "DOCS",
+    "tool_ok": true,
+    "answer_ok": true,
+    "answer": "No information on a late checkout fee is provided in the policy text."
+  }
+]
